@@ -10,7 +10,7 @@ namespace Lab10
     {
         static void Main(string[] args)
         {
-            Angle angle = new Angle(10, 10, 10);
+            Angle angle = new Angle(0, 10, 10);
             angle.ToRadians();
             Console.ReadKey();
         }
@@ -26,7 +26,7 @@ namespace Lab10
         {
             set
             {
-                if (value > 0)
+                if (value >= 0)
                 {
                     gradus = value;
                 }
@@ -44,7 +44,7 @@ namespace Lab10
         {
             set
             {
-                if (value > 0)
+                if (value >= 0)
                 {
                     min = value;
                 }
@@ -62,7 +62,7 @@ namespace Lab10
         {
             set
             {
-                if (value > 0)
+                if (value >= 0)
                 {
                     sec = value;
                 }
@@ -84,9 +84,8 @@ namespace Lab10
         }
         public void ToRadians()
         {
-            
-            rad = ((gradus + (min + sec / 60) / 60)* Math.PI) /180;
-            Console.WriteLine("{0} {1} {2} \nУгол в радианах {3}", gradus, min, sec, rad);
+            rad = (Convert.ToDouble(Gradus) + (Convert.ToDouble(Min) + Convert.ToDouble(Sec) / 60) / 60) * Math.PI / 180;
+            Console.WriteLine("{0} {1} {2} \nУгол в радианах {3:F4}", gradus, min, sec, rad);
         }
 
     }
